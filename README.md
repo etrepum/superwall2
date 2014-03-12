@@ -8,6 +8,16 @@ This is what it looks like once running:
   <img src="http://f.cl.ly/items/0X0V2S2t0K0t1p2C1G39/superwall_home.png">
 </p>
 
+## Rakefile
+
+These are the main commands of interest:
+
+* `rake db:migrate` to run all migrations up to the latest version
+* `rake generate:migration NAME="add_foo_to_bar"` to create a timestamp-versioned migration file called “add_foo_to_bar”
+* `rake generate:model NAME="User"` to generate a new model call User that lives in models/user.rb
+* `rake -T` to list all available rake commands
+* `ruby app.rb` to actually run the application
+
 ## Contents
 
 1. [Getting Started](#getting-started)

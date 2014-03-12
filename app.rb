@@ -6,12 +6,17 @@ require ::File.expand_path('../config/environment',  __FILE__)
 set :app_file, __FILE__
 
 get '/' do
-  posts = Post.reverse_order(:created_at).all
+  posts = Post.reverse_order(:created_at).where(:deleted=>false)
   erb :index, :locals => {:posts => posts}
 end
 
 post '/posts' do
   Post.create(:body => params[:body])
+  redirect to('/')
+end
+
+post '/delete' do
+  Post.where(:id => params[:id]).update(:deleted=>true)
   redirect to('/')
 end
 

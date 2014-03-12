@@ -15,6 +15,10 @@
     <li>
       <!-- Read http://www.ruby-doc.org/core-2.1.1/Time.html#method-i-strftime 
            for information about how this strftime voodoo works -->
+      <form method="post" action="/delete">
+        <input type="hidden" name="id" value="<%= post.id %>">
+        <input type="submit" value="Delete">
+      </form>
       <p><%= post.created_at.strftime('%A, %B %-d, %Y') %></p>
       <!-- What does "escape" do here?  What happens if you remove it? -->
       <!-- Try creating a post that contains HTML and see how that post looks
